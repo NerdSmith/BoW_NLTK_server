@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="post-entry">
+        <h2>{{ object.title }}</h2>
+        <p>by {{ object.author }}</p>
+        <p>{{ object.body }}</p>
+        {{ object.posts.table }}
+    </div>
+
+    <p>Back to <a href="{% url 'post_list' %}">All Posts</a>.</p>
+{% endblock content %}
