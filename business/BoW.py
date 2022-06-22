@@ -1,5 +1,7 @@
 import nltk
 import numpy as np
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 nltk.download('punkt')
 import re
 import heapq
@@ -18,6 +20,7 @@ def word_to_count(ds):
     word2count = {}
     for data in ds:
         words = nltk.word_tokenize(data)
+        words = [word for word in words if not word in stopwords.words()]
         for word in words:
             if word not in word2count.keys():
                 word2count[word] = 1
